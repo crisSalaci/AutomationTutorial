@@ -1,11 +1,14 @@
 package tests;
 
+import helpMethods.ElementMethods;
+import helpMethods.FrameMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
+import pages.HomePage;
 
 import java.time.Duration;
 
@@ -23,27 +26,27 @@ public class FramesTest {
         //wait implicit
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        WebElement alertFrameWindowMenu = driver.findElement(By.xpath("//h5[text()= 'Alerts, Frame & Windows']"));
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", alertFrameWindowMenu);
+        ElementMethods elementMethods = new ElementMethods(driver);
+        FrameMethods frameMethods = new FrameMethods(driver);
+
+        HomePage homePage = new HomePage(driver);
+        homePage.clickAlertFrameWindow();
 
         WebElement framesElement = driver.findElement(By.xpath("//span[text()='Frames']"));
-        js.executeScript("arguments[0].click();", framesElement);
-
+        elementMethods.clickJSElement(framesElement);
 
         //ne mutam pe un iFrame
-        driver.switchTo().frame("frame1");
+        frameMethods.switchToSpecificIFrame("frame1");
 
         WebElement sampleTextElement = driver.findElement(By.id("sampleHeading"));
         System.out.println(sampleTextElement.getText());
 
-        driver.switchTo().parentFrame();
+        frameMethods.switchToParentIFrame();
 
-        driver.switchTo().frame("frame2");
+        frameMethods.switchToSpecificIFrame("frame2");
 
         WebElement secondSampleTextElement = driver.findElement(By.id("sampleHeading"));
         System.out.println(secondSampleTextElement.getText());
-
 
         //TEMA - Nested frames
     }
