@@ -73,6 +73,7 @@ public class WebTableTest {
 
         // validam valorile pe care le-am introdus
         String rowContent = newTableContentList.get(3).getText();
+        System.out.println(rowContent);
         Assert.assertTrue(rowContent.contains(firstNameValue),"The last row does not contain first name value.");
         Assert.assertTrue(rowContent.contains(lastNameValue),"The last row does not contain last name value.");
         Assert.assertTrue(rowContent.contains(userEmailValue),"The last row does not contain email value.");
@@ -113,6 +114,7 @@ public class WebTableTest {
 
         //validam valorile modificate din tabel
         rowContent = newTableContentList.get(3).getText();
+        System.out.println(rowContent);
         Assert.assertTrue(rowContent.contains(editFirstNameValue),"The last row does not contain first name value.");
         Assert.assertTrue(rowContent.contains(editLastNameValue),"The last row does not contain last name value.");
         Assert.assertTrue(rowContent.contains(editEmailValue),"The last row does not contain email value.");
@@ -127,6 +129,6 @@ public class WebTableTest {
         newTableContentList = driver.findElements(By.xpath("//div[@class = 'rt-tbody']/div/div[@class ='rt-tr -odd' or @class = 'rt-tr -even']"));
         Assert.assertEquals(newTableContentList.size(),3,"Default size for table is not 3.");
 
-       // driver.quit();
+        driver.quit();
     }
 }
