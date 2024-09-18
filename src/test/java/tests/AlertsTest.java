@@ -1,22 +1,15 @@
 package tests;
 
-import helpMethods.AlertMethods;
-import helpMethods.ElementMethods;
 import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import pages.AlertFrameWindowPage;
 import pages.AlertPage;
 import pages.HomePage;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-public class Alerte {
+public class AlertsTest {
 
     public WebDriver driver;
 

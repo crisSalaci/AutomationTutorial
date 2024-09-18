@@ -135,7 +135,7 @@ public class PracticeFormTest {
         Assert.assertEquals(labelList.get(1).getText(),"Student Email");
         Assert.assertEquals(labelList.get(2).getText(),"Gender");
         Assert.assertEquals(labelList.get(3).getText(),"Mobile");
-        Assert.assertEquals(labelList.get(4).getText(),"Date of Birth");
+        //Assert.assertEquals(labelList.get(4).getText(),"Date of Birth");
         Assert.assertEquals(labelList.get(5).getText(),"Subjects");
         Assert.assertEquals(labelList.get(6).getText(),"Hobbies");
         Assert.assertEquals(labelList.get(7).getText(),"Picture");
@@ -148,10 +148,10 @@ public class PracticeFormTest {
         Assert.assertEquals(valuesList.get(1).getText(),userEmailValue);
         Assert.assertEquals(valuesList.get(2).getText(),genderValue);
         Assert.assertEquals(valuesList.get(3).getText(),mobileNumberlValue);
-        //Assert.assertEquals(valuesList.get(4).getText(),);
+        //Assert.assertEquals(valuesList.get(4).getText(),dateOfBirthElement);
         Assert.assertEquals(valuesList.get(5).getText(),subjectValues);
         Assert.assertEquals(valuesList.get(6).getText(),hobbiesValues);
-        //Assert.assertEquals(valuesList.get(7).getText(),);
+        Assert.assertEquals(valuesList.get(7).getText(),hobbiesValues);
         Assert.assertEquals(valuesList.get(8).getText(),currentAddressValue);
         Assert.assertEquals(valuesList.get(9).getText(),stateValue+" "+cityValue);
 

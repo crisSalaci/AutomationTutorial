@@ -18,9 +18,19 @@ public class AlertFrameWindowPage {
 
     @FindBy(xpath = "//span[text()='Alerts']")
     public WebElement alertsElement;
+    @FindBy(xpath = "//span[text()='Browser Windows']")
+    public WebElement browserWindowSubMenu;
+    @FindBy(xpath = "//span[text()='Frames']")
+    public WebElement framesElement;
 
     public void clickAlert(){
         elementMethods.clickJSElement(alertsElement);
+    }
+    public void clickBrowserWindowSubMenu(){
+        elementMethods.clickJSElement(browserWindowSubMenu);
+    }
+    public void clickFramesSubMenu(){
+        elementMethods.clickJSElement(framesElement);
     }
 }
 

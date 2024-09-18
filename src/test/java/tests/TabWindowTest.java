@@ -5,6 +5,9 @@ import helpMethods.TabMethods;
 import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
+import pages.AlertFrameWindowPage;
+import pages.HomePage;
+import pages.TabWindowPage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,28 +25,14 @@ public class TabWindowTest {
         //facem browserul maximise
         driver.manage().window().maximize();
 
-        ElementMethods elementMethods = new ElementMethods(driver);
-        TabMethods tabMethods = new TabMethods(driver);
+        HomePage homePage = new HomePage(driver);
+        homePage.clickAlertFrameWindow();
 
-        WebElement alertFrameWindowMenu = driver.findElement(By.xpath("//h5[text()= 'Alerts, Frame & Windows']"));
-        elementMethods.clickJSElement(alertFrameWindowMenu);
+        AlertFrameWindowPage alertFrameWindowPage = new AlertFrameWindowPage(driver);
+        alertFrameWindowPage.clickBrowserWindowSubMenu();
 
-        WebElement browserWindowElement = driver.findElement(By.xpath("//span[text()='Browser Windows']"));
-        elementMethods.clickJSElement(browserWindowElement);
-
-        WebElement newTabElement=driver.findElement(By.id("tabButton"));
-        elementMethods.clickJSElement(newTabElement);
-
-        tabMethods.switchSpecificTab(1);
-        tabMethods.closeCurrentTab();
-        tabMethods.switchSpecificTab(0);
-
-        WebElement newWindowElement=driver.findElement(By.id("windowButton"));
-        elementMethods.clickJSElement(newWindowElement);
-
-        tabMethods.switchSpecificTab(1);
-        tabMethods.closeCurrentTab();
-
-        driver.quit();
+        TabWindowPage tabWindowPage = new TabWindowPage(driver);
+        tabWindowPage.dealTabProcess();
+        tabWindowPage.dealWindowProcess();
     }
 }

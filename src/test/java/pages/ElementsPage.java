@@ -6,26 +6,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class ElementsPage {
     public WebDriver driver;
     public ElementMethods elementMethods;
 
-    public HomePage(WebDriver driver) {
+    public ElementsPage(WebDriver driver) {
         this.driver = driver;
         elementMethods = new ElementMethods(this.driver);
         PageFactory.initElements(this.driver,this);
     }
 
-    @FindBy(xpath = "//h5[text()= 'Alerts, Frame & Windows']")
-    public WebElement alertFrameWindowMenu;
-    @FindBy(xpath = "//h5[text()='Elements']")
-    public WebElement elementsMenu;
+    @FindBy(xpath = "//span[text()='Web Tables']")
+    public WebElement webTableSubMenu;
 
-    public void clickAlertFrameWindow(){
-        elementMethods.clickJSElement(alertFrameWindowMenu);
+    public void clickWebTable(){
+        elementMethods.clickJSElement(webTableSubMenu);
 
-    }
-    public void clickElements(){
-        elementMethods.clickJSElement(elementsMenu);
     }
 }

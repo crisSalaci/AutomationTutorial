@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
+import pages.AlertFrameWindowPage;
+import pages.FramesPage;
 import pages.HomePage;
 
 import java.time.Duration;
@@ -26,28 +28,14 @@ public class FramesTest {
         //wait implicit
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        ElementMethods elementMethods = new ElementMethods(driver);
-        FrameMethods frameMethods = new FrameMethods(driver);
-
         HomePage homePage = new HomePage(driver);
         homePage.clickAlertFrameWindow();
 
-        WebElement framesElement = driver.findElement(By.xpath("//span[text()='Frames']"));
-        elementMethods.clickJSElement(framesElement);
+        AlertFrameWindowPage alertFrameWindowPage = new AlertFrameWindowPage(driver);
+        alertFrameWindowPage.clickFramesSubMenu();
 
-        //ne mutam pe un iFrame
-        frameMethods.switchToSpecificIFrame("frame1");
-
-        WebElement sampleTextElement = driver.findElement(By.id("sampleHeading"));
-        System.out.println(sampleTextElement.getText());
-
-        frameMethods.switchToParentIFrame();
-
-        frameMethods.switchToSpecificIFrame("frame2");
-
-        WebElement secondSampleTextElement = driver.findElement(By.id("sampleHeading"));
-        System.out.println(secondSampleTextElement.getText());
-
-        //TEMA - Nested frames
+        FramesPage framesPage = new FramesPage(driver);
+        framesPage.dealFirstIFrame();
+        framesPage.dealSecondIFrame();
     }
 }
